@@ -1,6 +1,6 @@
 .carousel .slick-arrow.slick-prev,
 .carousel .slick-arrow.slick-next {
-  background: #fcfcfc;
+  background: transparent;
   width: 47px;
   height: 104px;
   display: flex;

@@ -5,12 +5,13 @@ import "./style.css";
 import { data } from "./data";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+let slidesToShow = 3;
 const PreviousBtn = (props) => {
   // console.log(props);
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowBackIosIcon style={{ color: "blue", fontSize: "30px" }} />
+      <ArrowBackIosIcon style={{ color: "white", fontSize: "40px" }} />
     </div>
   );
 };
@@ -18,9 +19,42 @@ const NextBtn = (props) => {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
-      <ArrowForwardIosIcon style={{ color: "blue", fontSize: "30px" }} />
+      <ArrowForwardIosIcon style={{ color: "white", fontSize: "40px" }} />
     </div>
   );
+};
+
+const carouselProperties = {
+  prevArrow: <PreviousBtn />,
+  nextArrow: <NextBtn />,
+  slidesToShow: slidesToShow,
+  slidesToScroll: 2,
+  infinite: false,
+  // slidesToScroll={3}
+  responsive: [
+    {
+      breakpoint: 426,
+      settings: {
+        slidesToShow: 1,
+        centerMode: false,
+      },
+    },
+    {
+      breakpoint: 769,
+      settings: {
+        slidesToShow: 3,
+        centerMode: false,
+      },
+    },
+    {
+      breakpoint: 1025,
+      settings: {
+        slidesToShow: 4,
+        centerMode: false,
+        slidesToScroll: 2,
+      },
+    },
+  ],
 };
 
 const Carousel = () => {
@@ -28,9 +62,10 @@ const Carousel = () => {
     <div style={{ margin: "0px" }} className="carousel">
      
       <Slider
+ {...carouselProperties}
         autoplay
-        //autoplaySpeed={2000}
-        // dots
+        autoplaySpeed={4000}
+        //dots
         initialSlide={2}
         infinite
         prevArrow={<PreviousBtn />}
