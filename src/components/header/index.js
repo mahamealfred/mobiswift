@@ -5,7 +5,8 @@ import "./style.css";
 import { data } from "./data";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-let slidesToShow = 3;
+import { Box, CssBaseline } from "@mui/material";
+let slidesToShow = 2;
 const PreviousBtn = (props) => {
   // console.log(props);
   const { className, onClick } = props;
@@ -59,8 +60,8 @@ const carouselProperties = {
 
 const Carousel = () => {
   return (
-    <div style={{ margin: "0px" }} className="carousel">
-     
+    <Box style={{ margin: "0px" }} className="carousel">
+     <CssBaseline/>
       <Slider
  {...carouselProperties}
         autoplay
@@ -90,11 +91,11 @@ const Carousel = () => {
       >
         {data.map((item) => (
           <div>
-            <img src={item} alt="" style={{ width: "100%", height: "40vh" }} />
+            <img src={item} alt="" style={{ width: "100%", height: "35vh" }} />
           </div>
         ))}
       </Slider>
-    </div>
+    </Box>
   );
 };
 
